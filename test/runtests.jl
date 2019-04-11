@@ -80,7 +80,7 @@ end
             write(f, data)
         end
         @test AstroImage(fname, 1) isa AstroImage
-        @test AstroImage(Gray ,fname, 1) isa AstroImage
+        @test AstroImage(Gray, fname, 1) isa AstroImage
     end
 
     @testset "Image HDU is not at 1st position" begin
@@ -105,4 +105,7 @@ end
         @test @test_logs (:info, "Image was loaded from HDU 3") AstroImage(fname) isa AstroImage
     end
 end
+
+rm(fname, force = true)
+
 include("plots.jl")
